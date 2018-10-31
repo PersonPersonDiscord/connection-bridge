@@ -6,7 +6,7 @@ var users = [];
 var names = ["Adams", "Baker", "Clark", "Davis", "Evans", "Frank", "Ghosh", "Hills", "Irwin", "Jones", "Klein", "Lopez", "Mason", "Nalty", "Ochoa", "Patel", "Quinn", "Reily","Smith","Trott","Usman","Valdo","White","Xiang", "Yakub","Zafar"];
 
 function join() {
-    var name = users[Math.floor(Math.random() * users.length)];
+    var name = names[Math.floor(Math.random() * names.length)];
     if (users.indexOf(name) > -1)
         return join();
     
@@ -32,7 +32,7 @@ server.on("connection", (socket) => {
         leave(name);
     });
     
-    socket.send("Hello!");
+    socket.write("Hello!");
 });
 
 const port = process.env.PORT;
